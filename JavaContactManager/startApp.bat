@@ -1,0 +1,1 @@
+java  -Dfile.encoding=UTF-8   -jar  webcontactmanager/target/webcontactmanager-0.0.2-SNAPSHOT.jar

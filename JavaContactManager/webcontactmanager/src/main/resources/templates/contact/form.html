@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+   
+    <title>CONTACT MANAGER | AJOUT ET MISE A JOUR CONTACT</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+     <div class="jumbotron" >
+     
+      <div class="row text-right">
+                <a href="#" class="btn btn-success btn" style="padding: 6px 12px;font-size:14px;" th:href="@{/CONTACTMANAGER/contacts}" ><i class="glyphicon glyphicon-eye-open"></i> Consulter</a>
+            </div><br/>
+    
+    <form class="form-horizontal" name="contactForm" th:object="${contact}" th:action="@{/CONTACTMANAGER/contact}" method="post">
+    
+    <div class="panel "
+    th:classappend="${cmd == 'new'} ? panel-primary : panel-success"
+    >
+    
+	  <div class="panel-heading">
+	    
+	     <div class="panel-title" th:switch="${cmd}">                  
+	          <h3 th:case="new" >AJOUTER UN CONTACT </h3>
+	          <h3 th:case="edit" > METTRE &Agrave; JOUR UN CONTACT </h3>
+	      </div> 
+	  </div>
+	  <div class="panel-body">
+	   <p class="text-muted"><h4 class="text-muted">Les informations avec ( <span style="color:red;">*</span> ) sont obligatoires</h4></p>
+ 
+        
+            <input type="hidden" th:field="*{id}"/>
+     
+            <div class="form-group required">
+                <label for="nom" class="col-sm-2 control-label">Nom:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Nom du contact" required="required" autofocus="autofocus"  th:field="*{nom}" />
+                    <span class="help-block" style="color:red;" th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}">Erreur sur le nom du contact</span>
+                </div>
+            </div>
+           
+           <div class="form-group required">
+                <label for="prenom" class="col-sm-2 control-label">Prénom:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Prénom du contact" required="required" th:field="*{prenom}" />
+                      <span class="help-block" style="color:red;" th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}">Erreur sur le prénom du contact</span>
+                </div>
+            </div>
+            
+             <div class="form-group required">
+                <label for="prenom" class="col-sm-2 control-label">Sexe:</label>
+                <div class="col-sm-10">
+                                       
+                     <select th:field="*{sexe}" class="form-control">
+                        <option value="">Sélectionnez le sexe</option>
+                        <option value="H">Homme</option>
+                        <option value="F">Femme</option>
+                    </select>
+                     
+                      <span class="help-block" style="color:red;" th:if="${#fields.hasErrors('sexe')}" th:errors="*{sexe}">Erreur sur le sexe du contact</span>
+                </div>
+            </div>
+            
+            <div class="form-group required">
+                <label for="telephone" class="col-sm-2 control-label">Téléphone:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Téléphone du contact" required="required" th:field="*{telephone}" />
+                     <span class="help-block" style="color:red;" th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}">Erreur sur le téléphone du contact</span>
+                </div>
+            </div>
+           <div class="form-group required">
+                <label for="email" class="col-sm-2 control-label">Adresse email:</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" placeholder="Adresse email du contact" required="required"  th:field="*{email}" />
+                      <span class="help-block" style="color:red;" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Erreur sur l'adresse email du contact</span>
+                </div>
+            </div>
+           <div class="form-group required">
+                <label for="adresse" class="col-sm-2 control-label">Adresse:</label>
+                <div class="col-sm-10">      
+                    <textarea class="form-control" rows="3" placeholder="Adresse du contact (pays, ville, quartier, etc.)" required="required"  th:field="*{adresse}"></textarea>
+                    <span class="help-block" style="color:red;" th:if="${#fields.hasErrors('adresse')}" th:errors="*{adresse}">Erreur sur l'adresse du contact</span>
+                </div>
+            </div>           
+                       
+           <div class="panel-footer">
+            <div th:switch="${cmd}" class="text-right"> 
+                 <button th:case="new" class="btn btn-primary btn-xs" type="submit" ><span class="glyphicon glyphicon-floppy-disk"></span> Enregistrer</button>
+                 <button th:case="edit" class="btn btn-success btn-xs" type="submit" ><i class="glyphicon glyphicon-pencil"></i> Modifier</button>
+                 <button class="btn btn-default btn-xs" type="reset" ><span class="glyphicon glyphicon-refresh"></span> Annuler</button>
+            </div>            
+           </div>   
+             
+               </div>
+    </div>
+            
+        </form>
+   
+	
+    
+    
+           
+    
+     
+    </div><!-- /*fin jumbotron*/ -->
+    
+    
+     <!--/*/ <th:block th:include="fragments/footer :: footer"></th:block> /*/-->
+</div>
+
+</body>
+</html>

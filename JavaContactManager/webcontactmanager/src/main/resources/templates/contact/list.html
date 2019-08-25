@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+<title>CONTACT MANAGER | LISTE DES CONTACTS</title>
+
+<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+	<div class="container">
+		<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+		<div class="jumbotron" style="padding-right: 40px; padding-left: 40px;">
+			<h3 class="text-muted">LISTE DES CONTACTS</h3>
+			<div class="row">
+			
+			<div class="col-md-6 text-right">
+                       
+                    
+                    </div>
+                    
+			<div class="col-md-3 text-right">
+							<a href="#" class="btn btn-success btn"				
+					style="padding: 6px 40px; font-size: 14px; margin-right: 25px;"
+					th:href="@{/CONTACTMANAGER/contact/new}"><i
+					class="glyphicon glyphicon-plus"></i> Ajouter</a>
+					
+					</div>
+					<div class="col-md-3 text-left">
+					 <a href="#" class="btn btn-info btn"
+                    style="padding: 6px 40px; font-size: 14px; margin-right: 25px;"
+                    th:href="@{/CONTACTMANAGER/contact/print}"><i
+                    class="glyphicon glyphicon-print"></i> Imprimer</a>
+                    </div>
+			</div>
+			
+			<br />
+
+			<div th:if="${error != null and error != ''}">
+				<div class="alert alert-danger fade in">
+					<button type="button" class="close" data-dismiss="alert"
+						aria-hidden="true">×</button>
+					<strong th:text="${error}"> </strong>
+				</div>
+			</div>
+
+			<div th:if="${success != null and success != ''}">
+				<div class="alert alert-success fade in">
+					<button type="button" class="close" data-dismiss="alert"
+						aria-hidden="true">×</button>
+					<strong th:text="${success}"></strong>
+				</div>
+			</div>
+
+			<div class="table-responsive">
+
+				<div th:if="${not #lists.isEmpty(contacts)}">
+
+					<table id="list-contacts"
+						class="table table-striped table-bordered datatable"
+						cellspacing="0" width="100%">
+
+						<thead>
+							<tr>							    						
+								<th>Nom</th>
+								<th>Pr&eacute;nom</th>								
+								<th>T&eacute;l&eacute;phone</th>
+								<th>Adresse email</th>
+								<th>Adresse</th>
+								<th>Action</th>
+
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>								
+								<th>Nom</th>
+								<th>Pr&eacute;nom</th>	        						
+								<th>T&eacute;l&eacute;phone</th>
+								<th>Adresse email</th>
+								<th>Adresse</th>
+								<th>Action</th>
+
+							</tr>
+						</tfoot>
+						<tbody>
+							<tr th:each="contact : ${contacts}">
+								
+								<td th:text="${contact.nom}">nom</td>
+								<td th:text="${contact.prenom}">prenom</td>
+
+								<!-- div th:switch="${contact.sexe}">
+									<td th:case="H">Homme</td>
+									<td th:case="F">Femme</td>
+								</div-->
+
+								<td th:text="${contact.telephone}">telephone</td>
+								<td th:text="${contact.email}">adrese email</td>
+								<td th:text="${contact.adresse}">adresse</td>
+
+								<td><a
+									th:href="${ '/CONTACTMANAGER/contact/' + contact.id}"
+									class="btn btn-circle-micro btn-info"
+									style="padding: 6px 10px; font-size: 14px;"><i class="glyphicon glyphicon-eye-open"></i></a> <a
+									th:href="${'/CONTACTMANAGER/contact/edit/' + contact.id}"
+									class="btn btn-circle-micro btn-primary"
+									style="padding: 6px 10px; font-size: 14px;"><i class="glyphicon glyphicon-pencil"></i></a> <a
+									th:href="${'/CONTACTMANAGER/contact/delete/' + contact.id}"
+									class="btn btn-circle-micro btn-danger"
+									style="padding: 6px 10px; font-size: 14px;"
+									onclick="deleteContact(${contact.id})"><i class="glyphicon glyphicon-remove"></i></a></td>
+							</tr>
+						</tbody>
+
+					</table>
+
+				</div>
+			</div>
+
+			<div th:if="${#lists.isEmpty(contacts)}">
+				<span><h3 class="text-muted" style="color: red;">Aucun
+						enregistrement trouvé</h3></span>
+			</div>
+
+
+		</div>
+
+		<!--/*/ <th:block th:include="fragments/footer :: footer"></th:block> /*/-->
+
+	</div>
+
+</body>
+</html>

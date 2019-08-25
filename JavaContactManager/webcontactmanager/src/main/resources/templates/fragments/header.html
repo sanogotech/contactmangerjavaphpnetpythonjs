@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:dt="http://www.thymeleaf.org/dandelion/datatables">
+
+<head lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="shortcut icon" href="../static/img/logo-app-2.png"
+	th:href="@{/img/logo-app-2.png}" />
+
+<link href="../static/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen" />
+<link href="../static/css/style.css" th:href="@{/css/style.css}"
+	rel="stylesheet" media="screen" />
+<link rel="stylesheet" href="../static/css/font-awesome.min.css"
+	th:href="@{/css/font-awesome.min.css}" />
+
+<link href="../static/css/dataTables.bootstrap4.min.css"
+	th:href="@{/css/dataTables.bootstrap4.min.css}" rel="stylesheet" />
+<link href="../static/css/dataTables.bootstrap4.min.css"
+	th:href="@{/css/sweet-alert.css}" rel="stylesheet" />
+
+ <!-- fonts -->
+        <link rel="stylesheet" href="../static/font/glyphicons-halflings-regular.svg" th:href="@{/font/glyphicons-halflings-regular.svg}" />
+        <link rel="stylesheet" href="../static/font/glyphicons-halflings-regular.woff" th:href="@{/font/glyphicons-halflings-regular.woff}" />
+        <link rel="stylesheet" href="../static/font/glyphicons-halflings-regular.ttf" th:href="@{/font/glyphicons-halflings-regular.ttf}" />
+        <link rel="stylesheet" href="../static/font/glyphicons-halflings-regular.eot" th:href="@{/font/glyphicons-halflings-regular.eot}" />
+    <!-- /**/ fonts -->  
+ 
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css" />
+<script type="text/javascript"
+	src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+
+<script src="../static/js/jquery.dataTables.min.js"
+	th:src="@{/js/jquery.dataTables.min.js}"></script>
+<script src="../static/js/dataTables.bootstrap4.min.js"
+	th:src="@{/js/dataTables.bootstrap4.min.js}"></script>
+
+<script src="../static/js/sweet-alert.min.js" type="text/javascript"
+	th:src="@{/js/sweet-alert.min.js}"></script>
+<script src="../static/js/SweetAlert.js" type="text/javascript"
+	th:src="@{/js/SweetAlert.js}"></script>
+	
+	
+</head>
+
+<body>
+	<div class="container">
+
+		<div th:fragment="header">
+			<div class="header">
+						  
+			
+				<ul th:if="${not #strings.isEmpty(session.username)}" class="nav nav-pills pull-right">
+
+					<li class=""
+						th:classappend="${active_menu == null || active_menu == ''} ? active : ''"><a
+						href="#" th:href="@{/CONTACTMANAGER}">Accueil</a></li>
+
+					<li class=""
+                        th:classappend="${active_menu != null and active_menu == 'listcontact'} ? active : ''">
+                        <a href="#" th:href="@{/CONTACTMANAGER/contacts}" >Liste
+							des contacts</a></li>
+					<li class=""
+                        th:classappend="${active_menu != null and active_menu == 'newcontact'} ? active : ''"><a href="#" th:href="@{/CONTACTMANAGER/contact/new}">Créer un
+							contact</a></li>
+							<li class="" th:classappend="${active_menu != null and active_menu == 'signup'} ? active : ''"><a href="#" th:href="@{/CONTACTMANAGER/user/signup}">S'inscrire</a></li>
+							
+							<li class="" th:classappend="${active_menu != null and active_menu == 'login'} ? active : ''"><a href="#" th:href="@{/CONTACTMANAGER/user/login}">Se connecter</a></li>
+							
+
+					<li><a href="#" th:href="@{/CONTACTMANAGER/user/logout}">Se déconnecter</a></li>
+
+				</ul>
+				
+				<!-- p th:unless="${#strings.isEmpty(session.username)}"><a href="#" th:href="@{/CONTACTMANAGER/user/login}"></a></p!--> 
+				
+				<h3 class="text-muted">CONTACT MANAGER</h3>
+			</div>
+
+
+		</div>
+	</div>
+</body>
+</html>

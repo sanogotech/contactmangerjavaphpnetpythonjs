@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>CONTACTMANAGER | ACCUEIL</title>
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    
+    <div class="jumbotron">            
+            
+            <div class="row text-center">
+                <img src="../../static/img/logo-app.png" width="200" th:src="@{/img/logo-app.png}" alt="LOGO NON DISPONIBLE"/>
+            </div>
+            
+            <div class="row text-center">
+                <div class="">
+                    <!-- h2>CONTACT MANAGER</h2-->
+                    <h3>Bienvenue</h3>
+                </div>
+            </div>
+                     
+	        <p class="lead">Application de gestion de contacts, con&ccedil;ue dans le but d'aider les commerciaux dans leurs prises de contacts.</p>
+	        <p th:text="'Utilisateur connect&eacute; : ' + ${session.username == null ? 'Vous n&acute;  &ecirc;tes pas connect&eacute;':session.username }"></p>
+        </div>
+                
+         <!--/*/ <th:block th:include="fragments/footer :: footer"></th:block> /*/-->
+</div>
+
+</body>
+</html>

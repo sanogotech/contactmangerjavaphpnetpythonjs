@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+<title>CONTACT MANAGER | LOGIN</title>
+
+<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+	<div class="container">
+		<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+		<div class="jumbotron" style="height: auto; min-height: 300px;">
+
+			<div class="col-md-4">
+				<img src="https://bootdey.com/img/Content/Manbrown2.png"
+					class="img-responsive center-block img-user" />
+
+			</div>
+
+			<div class="col-md-6 form-content">
+				<form class="form-horizontal" role="form" th:action="@{/CONTACTMANAGER/user/login}" method="post" th:object="${loginForm}">
+					<div class="form-group text-center">
+						<div class="col-sm-10 reg-icon">
+							<span class="fa fa-user fa-2x"> Connectez - vous</span>
+						</div>
+					</div>
+					
+					 <div th:if="${error != null and error != ''}">
+                 <div class="alert alert-danger fade in">
+                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                     <strong th:text="${error}"> </strong>  
+                 </div>      
+                </div>     
+                 
+                 <div th:if="${success != null and success != ''}">
+                 <div class="alert alert-success fade in">
+                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                     <strong th:text="${success}"></strong> 
+                   </div>
+                 </div>
+					
+					<div class="form-group">
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="username" 
+							    required="required" autofocus="autofocus" 
+								name="username" placeholder="Nom d'utilisateur"
+								th:value="*{username}" /> <span class="help-block"
+								style="color: red;" th:if="${#fields.hasErrors('username')}"
+								th:errors="*{username}">Invalid username</span>
+
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-10">
+							<input type="password" class="form-control" id="password"
+							    required="required" 
+								name="password" th:value="*{password}" 
+								placeholder="Mot de passe" /> <span class="help-block"
+								style="color: red;" th:if="${#fields.hasErrors('password')}"
+								th:errors="*{password}">Invalid password</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-10">
+							<button type="submit" class="btn btn-primary">
+								<span class="glyphicon glyphicon-share-alt"></span> Se connecter
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			
+			<div class="col-md-4">			
+
+			</div>
+
+<div class="col-md-6 form-content">
+		<div class="form-group text-center">
+				<div class="col-sm-10 reg-icon">
+					<a href="#" th:href="@{/CONTACTMANAGER/user/signup}">Vous n'avez pas de compte ? Inscrivez - vous</a>
+				</div>
+			</div>
+</div>
+
+		</div>
+		<!-- /*fin jumbotron*/ -->
+
+
+		<!--/*/ <th:block th:include="fragments/footer :: footer"></th:block> /*/-->
+	</div>
+
+</body>
+</html>

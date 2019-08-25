@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">CONTACTMANAGER</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="action_about">À propos</string>
+    <string name="action_profil">Voir mon profil</string>
+    <string name="action_logout">Se déconnecter</string>
+    <string name="app_copy">(©) 2017 Rodolphe Agnero. Tous droits réservés</string>
+    <string name="title_activity_list_contact">LISTE DES CONTACTS</string>
+    <string name="title_activity_new_contact">AJOUTER UN CONTACT</string>
+    <string name="title_activity_view_contact">DETAIL DU CONTACT</string>
+    <string name="one">SYNCHRONISATION PAR USB</string>
+    <string name="two">SYNCHRONISATION PAR MAIL</string>
+    <string name="three">SYNCHRONISATION AUTRE</string>
+    <string name="text_aide">
+        Qu\'est ce que CONTACTMANAGER ? \n\n
+        C\'est une application de gestion de contact.\n\n
+        Pour qui ?\n\n
+        C\'est une application conçue pour les commerciaux en vue
+        de les aider dans le suivi des prospects et clients.\n\n
+        Comment ça marche ? \n\n
+        1. Entrez votre nom d\'utilisateur et votre mot de passe pour accéder à l\'écran d\'accueil\n
+        2. Une fois connecter, vous pouvez visualiser les contacts, ajouter des contacts et de synchroniser
+        les contacts en cas de l\'indisponibilité de l\'accès à internet
+
+    </string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

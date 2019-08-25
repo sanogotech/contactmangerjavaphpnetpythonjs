@@ -1,0 +1,2 @@
+INSERT INTO `users` (`users_id`, `users_username`, `users_password`, `users_email`, `users_firstname`, `users_lastname`, `users_genre`, `users_phone`, `users_mobile`, `users_active`, `users_address`, `users_avatar`, `users_commentaires`, `users_isadmin`, `users_lastconnected`) VALUES
+(10,'adminTEST', 'adminTEST', 'formation@macrosoftas.com', 'Souleymane', 'SANOGO', 'M', '00000000', '02415167', 'O', 'Abidjan Marcory', 'img/avatars', 'Formateur  JAVA JEE PYTHON', 'O', '2017-04-07 00:00:00');

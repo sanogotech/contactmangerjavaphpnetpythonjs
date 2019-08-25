@@ -1,0 +1,65 @@
+***
+Spring Boot  All Configuration
+https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+
+****
+Externalized Configuration
+***
+The following example shows how to specify a different file name:
+
+$ java -jar myproject.jar --spring.config.name=myproject
+The following example shows how to specify two locations:
+
+$ java -jar myproject.jar --spring.config.location=classpath:/default.properties,classpath:/override.properties
+
+https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html
+
+-******
+Why do we need spring-boot-maven-plugin?
+spring-boot-maven-plugin provides a few commands which enable you to package the code as a jar or run the application
+
+spring-boot:run runs your Spring Boot application.
+spring-boot:repackage repackages your jar/war to be executable.
+spring-boot:start and spring-boot:stop to manage the lifecycle of your Spring Boot application (i.e. for integration tests).
+spring-boot:build-info generates build information that can be used by the Actuator.
+
+***
+Maven
+*****
+Build LifeCycle is a sequence of steps
+-Validate, Compile, Test, Package, Integration Test,Verify, Install, Deploy
+
+Maven follows Convention over Configuration.
+
+**** Spring Boot Starter ***
+started with developing specific types of applications
+.spring-boot-starter-web-services - SOAP Web Services
+.spring-boot-starter-web - Web & RESTful applications
+.spring-boot-starter-test - Unit testing and Integration Testing
+.spring-boot-starter-jdbc - Traditional JDBC
+.spring-boot-starter-hateoas - Add HATEOAS features to your services
+.spring-boot-starter-security - Authentication and Authorization using SpringSecurity
+.spring-boot-starter-data-jpa - Spring Data JPA with Hibernate
+.spring-boot-starter-cache - Enabling Spring Framework’s caching support
+.spring-boot-starter-data-rest - Expose Simple REST Services using Spring DataRESTOther Goals of Spring BootThere are a few starters for technical stuff as well
+.spring-boot-starter-actuator - To use advanced features like monitoring & tracing to your application out of the box
+.spring-boot-starter-undertow, spring-boot-starter-jetty, spring-boot-starter-tomcat - To pick your specific choice of Embedded Servlet Container
+.spring-boot-starter-logging - For Logging using logback
+.spring-boot-starter-log4j2 - Logging using Log4j2
+Spring Boot aims to enable production ready applications in quick time.Actuator : Enables Advanced Monitoring and Tracing of applications.Embedded Server Integrations
+- Since server is integrated into the application, Iwould NOT need to have a separate application server installed on the server.Default Error Handling
+
+*****
+Here’s how Spring Boot automatically configures a connection pool datasource:
+
+Spring Boot will look for HikariCP on the classpath and use it by default when present
+If HikariCP is not found on the classpath, then Spring Boot will pick up the Tomcat JDBC Connection Pool, if it’s available
+If neither of these options is available, Spring Boot will choose Apache Commons DBCP2, if that is available:
+https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-sql.html
+https://www.baeldung.com/spring-boot-tomcat-connection-pool
+
+Spring Boot uses HikariCP  by default, and follow this sequence to find the connection pool :
+- HikariCP -->> Tomcat pool -->>  Commons DBCP -->>  Commons DBCP2
+
+*************************
+
